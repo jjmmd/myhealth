@@ -1,22 +1,18 @@
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to myHealth!</h1>
 
-<!--   {{> hello}}
-  {{> info}} -->
-<!--   {{> loginButtons}}
- --></body>
+  <div class="container">
 
-<!-- <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+    {{> loginButtons}}
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
-</template> -->
+    <div>
+      <h4>User Accounts List</h4>
+      <ul>
+        {{#each users}}
+          <li>{{username}}</li>
+          Created At:  {{createdAt}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</body>
