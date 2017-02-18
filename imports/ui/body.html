@@ -1,18 +1,45 @@
 <body>
-  <h1>Welcome to myHealth!</h1>
+  <div class="container-fluid">
 
-  <div class="container">
+    <h1>Welcome to myHealth!</h1>
 
     {{> loginButtons}}
 
     <div>
-      <h4>User Accounts List</h4>
-      <ul>
-        {{#each users}}
-          <li>{{username}}</li>
-          Created At:  {{createdAt}}
-        {{/each}}
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#userAccounts" aria-controls="userAccounts" role="tab" data-toggle="tab">User Accounts</a></li>
+        <li role="presentation"><a href="#jim" aria-controls="jim" role="tab" data-toggle="tab">Jim</a></li>
+        <li role="presentation"><a href="#ben" aria-controls="ben" role="tab" data-toggle="tab">Ben</a></li>
+        <li role="presentation"><a href="#ani" aria-controls="ani" role="tab" data-toggle="tab">Ani</a></li>
+        <li role="presentation"><a href="#brady" aria-controls="brady" role="tab" data-toggle="tab">Brady</a></li>
+        <li role="presentation"><a href="#mark" aria-controls="mark" role="tab" data-toggle="tab">Mark</a></li>
       </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="userAccounts">
+          <div>
+            <h4>User Accounts List</h4>
+            <ul>
+              {{#each users}}
+                <li>
+                  {{username}}
+                </li>
+              {{/each}}
+            </ul>
+          </div> 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="jim">
+          {{> jimLogin}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="ben">...</div>
+        <div role="tabpanel" class="tab-pane" id="ani">...</div>
+        <div role="tabpanel" class="tab-pane" id="brady">...</div>
+        <div role="tabpanel" class="tab-pane" id="mark">...</div>
+      </div>
+
     </div>
   </div>
 </body>

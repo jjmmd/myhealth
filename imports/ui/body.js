@@ -3,6 +3,8 @@ import { ReactiveVar } from 'meteor/reactive-var'
 
 import './body.html'
 
+import './jim/jimLogin.js'
+
 Template.body.onCreated(function (){
 	Meteor.subscribe('users')
 })
