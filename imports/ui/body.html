@@ -1,18 +1,16 @@
 <body>
-  <h1>Welcome to myHealth!</h1>
-
-  <div class="container">
-
-    {{> loginButtons}}
-
-    <div>
-      <h4>User Accounts List</h4>
-      <ul>
-        {{#each users}}
-          <li>{{username}}</li>
-          Created At:  {{createdAt}}
-        {{/each}}
-      </ul>
+    <div class="topbar">
+      <div class="title">
+        <h1>Welcome to myHealth!</h1>
+        <div class="floatRight">
+        User: {{> loginButtons}}
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div class="container">
+      Stuff goes here.
+    
+    </div>
+  
 </body>
