@@ -8,9 +8,16 @@
       </div>
     </div>
 
-    <div class="container">
-      Stuff goes here.
-    
-    </div>
-  
+<div class="container">
+Stuff goes here
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
 </body>
+ 
+<template name="task">
+  <li>{{text}}</li>
+</template>

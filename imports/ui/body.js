@@ -1,14 +1,14 @@
-import { Template } from 'meteor/templating'
-import { ReactiveVar } from 'meteor/reactive-var'
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 
-import './body.html'
-
-Template.body.onCreated(function (){
-	Meteor.subscribe('users')
-})
+import './body.html';
 
 Template.body.helpers({
-	users : function() {
-		return Meteor.users.find({})
-	},
-})
+	tasks: [
+	{ text: 'this is task 1'},
+	{ text: 'this is task 2'},
+	{ text: 'this is task 3'},
+	],
+});
+
+
