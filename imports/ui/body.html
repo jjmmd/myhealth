@@ -2,15 +2,18 @@
     <div class="topbar">
       <div class="title">
         <h1>Welcome to myHealth!</h1>
-        <div class="floatRight">
-        User: {{> loginButtons}}
-        </div>
+       <!--   
+       <div class="floatRight">
+      User: {{> loginButtons}} 
+        </div>                          
+        -->
       </div>
     </div>
 
 <div class="container">
 Tasks:
     <ol>
+    <li>{{tasks}}</li>
       {{#each tasks}}
         {{> task}}
       {{/each}}

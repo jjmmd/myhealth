@@ -5,6 +5,7 @@ import './body.html';
 
 Template.body.helpers({
   tasks() {
-    return Tasks.find({});
+  	console.log(Tasks.find());
+    return Tasks.find().count();
   },
 });
