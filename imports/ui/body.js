@@ -1,14 +1,10 @@
 import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import { Tasks } from '../api/tasks.js';
 
 import './body.html';
 
 Template.body.helpers({
-	tasks: [
-	{ text: 'this is task 1'},
-	{ text: 'this is task 2'},
-	{ text: 'this is task 3'},
-	],
+  tasks() {
+    return Tasks.find({});
+  },
 });
-
-

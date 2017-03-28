@@ -9,15 +9,17 @@
     </div>
 
 <div class="container">
-Stuff goes here
-    <ul>
+Tasks:
+    <ol>
       {{#each tasks}}
         {{> task}}
       {{/each}}
-    </ul>
+    </ol>
   </div>
 </body>
  
 <template name="task">
-  <li>{{text}}</li>
+  <li>
+    <span class="text">{{text}}</span>
+  </li>
 </template>
