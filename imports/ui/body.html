@@ -11,18 +11,23 @@
     </div>
 
 <div class="container">
-Tasks:
-    <ol>
-    <li>{{tasks}}</li>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ol>
-  </div>
+Add Task:
+<form class='new-task'>
+  <input type="text" name="text" placeholder="Type to add new Tasks"/>
+</form>
+<hr/>
+Tasks: {{tasks}}
+ <br/>
+  
+Chart: 
+<hr/>
+    <svg class="barChart">
+    </svg>
+    <br/>
+    <input type="button" id="add" value="Add a Value" />
+    <input type="button" id="remove" value="Remove a Value" />
+    <input type="button" id="toggleSort" value="Toggle Sorting" />
+
+
+</div>
 </body>
- 
-<template name="task">
-  <li>
-    <span class="text">{{text}}</span>
-  </li>
-</template>

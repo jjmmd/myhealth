@@ -1,11 +1,35 @@
 import { Template } from 'meteor/templating'
 import { Tasks } from '../api/tasks.js'
+import '../api/barchart.js'
 
 import './body.html'
 
 Template.body.helpers({
-  tasks : function () {
-  	console.log(Tasks.find());
+  tasks: function () {  
+  	console.log(Tasks.find().fetch());
     return Tasks.find().count();
+
   },
 });
+
+//Listener for form .new-task
+Template.body.events({
+  'submit .new-task'(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+ 
+    // Get value from form element
+    const target = event.target;
+    const text = target.text.value;
+ 
+    // Insert a task into the collection
+    Tasks.insert({
+      text,
+      createdAt: new Date(), // current time
+    });
+ 
+    // Clear form
+    target.text.value = '';
+  },
+});
+
