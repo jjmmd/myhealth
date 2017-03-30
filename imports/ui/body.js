@@ -6,7 +6,7 @@ import './body.html'
 
 Template.body.helpers({
   tasks: function () {  
-  	console.log(Tasks.find().fetch());
+  	//console.log(Tasks.find().fetch());
     return Tasks.find().count();
 
   },

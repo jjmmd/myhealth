@@ -1,25 +1,30 @@
 // From: https://github.com/nate-strauser/meteor-cookbook/tree/master/d3/d3-example/client/bar
+import { Tasks } from '../api/tasks.js'
 
 var Bars = new Meteor.Collection(null);
 Session.setDefault('barChartSort','none');
 Session.setDefault('barChartSortModifier',undefined);
 
-if(Bars.find({}).count() === 0){
-	for(i = 0; i < 10; i++)
-		Bars.insert({
-			value:Math.floor(Math.random() * 25)
-		});
-}
+//if(Bars.find({}).count() === 0){
+//	for(i = 0; i < 10; i++)
+//Template.body.onCreated(function(){
+//		Bars.insert({
+//			value:Tasks.find({}).count()
+//		})
+//})
 
 Template.body.events({
 	'click #add':function(){
+		console.log(Tasks.find().count);
 		Bars.insert({
-			value:Math.floor(Math.random() * 25)
+			value:Tasks.find({}).count()
 		});
 	},
 	'click #remove':function(){
-		var toRemove = Math.floor(Bars.find().fetch());
+		var toRemove = (Bars.findOne({}));
 		Bars.remove({_id:toRemove._id});
+	//	console.log("text");
+	//	console.log(toRemove);
 	},
 
 	'click #toggleSort':function(){
@@ -42,7 +47,7 @@ Template.body.events({
 
 Template.body.rendered = function(){
 	//Width and height
-	var w = 600;
+	var w = 323;
 	var h = 250;
 	
 	var xScale = d3.scale.ordinal()
