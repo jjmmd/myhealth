@@ -24,7 +24,7 @@ d3js:d3
 insecure
 session
 
-#User accounts
+###User accounts
 #useraccounts:flow-routing ## 
 #useraccounts:bootstrap ## Better user account UI manager
 accounts-password@1.3.4  ## default meteor password manager

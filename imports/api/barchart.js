@@ -1,5 +1,5 @@
 // From: https://github.com/nate-strauser/meteor-cookbook/tree/master/d3/d3-example/client/bar
-import { Tasks } from '../api/tasks.js'
+import { Pressure } from './pressure.js'
 
 var Bars = new Meteor.Collection(null);
 Session.setDefault('barChartSort','none');
@@ -15,9 +15,9 @@ Session.setDefault('barChartSortModifier',undefined);
 
 Template.body.events({
 	'click #add':function(){
-		console.log(Tasks.find().count);
+		console.log(Pressure.find().count);
 		Bars.insert({
-			value:Tasks.find({}).count()
+			value:Pressure.find({}).count()
 		});
 	},
 	'click #remove':function(){

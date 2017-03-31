@@ -1,35 +1,36 @@
 import { Template } from 'meteor/templating'
-import { Tasks } from '../api/tasks.js'
-import '../api/barchart.js'
-
+import { Pressure } from '../api/pressure.js'
 import './body.html'
 
 Template.body.helpers({
-  tasks: function () {  
+  pressureCount: function () {  
   	//console.log(Tasks.find().fetch());
-    return Tasks.find().count();
+    return Pressure.find({}).count();
 
   },
 });
 
-//Listener for form .new-task
-Template.body.events({
-  'submit .new-task'(event) {
+//Listener for form .new-pressure
+Template.PressureInput.events({
+  'submit .new-pressure'(event) {
     // Prevent default browser form submit
     event.preventDefault();
- 
-    // Get value from form element
+     // Get value from form element
     const target = event.target;
-    const text = target.text.value;
+    const systolic = target.systolic.value;
+    const diastolic = target.diastolic.value;
+    const readingTime = target.readingTime.value;
  
-    // Insert a task into the collection
-    Tasks.insert({
-      text,
-      createdAt: new Date(), // current time
+    // Insert using meteor method from pressure.js
+    Meteor.call('pressure.insert', {
+      systolic: systolic,
+      diastolic: diastolic,
+      readingTime: readingTime
     });
- 
+
+    console.log(readingTime)
     // Clear form
-    target.text.value = '';
+    //target.Systolic.value = '120';
   },
 });
 

@@ -2,32 +2,46 @@
     <div class="topbar">
       <div class="title">
         <h1>Welcome to myHealth!</h1>
-       <!--   
        <div class="floatRight">
       User: {{> loginButtons}} 
         </div>                          
-        -->
       </div>
     </div>
-
+{{#if currentUser}}
 <div class="container">
-Add Task:
-<form class='new-task'>
-  <input type="text" name="text" placeholder="Type to add new Tasks"/>
-</form>
-<hr/>
-Tasks: {{tasks}}
- <br/>
-  
-Chart: 
-<hr/>
-    <svg class="barChart">
-    </svg>
-    <br/>
-    <input type="button" id="add" value="Add a Value" />
-    <input type="button" id="remove" value="Remove a Value" />
-    <input type="button" id="toggleSort" value="Toggle Sorting" />
+{{> PressureInput}}
 
-
+<hr/>
+Readings in database: {{pressureCount}}
+ <hr/>
+{{> barChart}}  
 </div>
+{{/if}}
 </body>
+
+<!-- HERE BE TEMPLATES -->
+
+<template name = 'barChart'>
+  <div class='subcontainer'>
+    Bar chart: 
+    <br/>
+        <svg class="barChart">
+        </svg>
+    <br/>
+        <input type="button" id="add" value="Add a Value" />
+        <input type="button" id="remove" value="Remove a Value" />
+        <input type="button" id="toggleSort" value="Toggle Sorting" />
+  </div>
+</template>
+
+<template name="PressureInput">
+  <div class = "subcontainer">
+    Add New Blood Pressure Recording:
+    <form class='new-pressure'>
+      <input type="number" name="systolic" placeholder="Systolic" attribute = '120'>
+      <input type="number" name="diastolic" placeholder="Diastolic" attribute= '88'>
+      <input type="Datetime-local" name="readingTime" placeholder="readingTime" attribute = '03/30/2017 12:00 AM'>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+</template>
