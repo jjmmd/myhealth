@@ -14,19 +14,17 @@ if (Meteor.isServer) {
 
 Meteor.methods({
 	'pressure.insert'({ systolic, diastolic, readingTime }) {
-		if (! Meteor.userid()) {
-			throw new Meteor.Error('not-authorized');
-		}
 		Pressure.insert({
 			systolic,
 			diastolic,
 			readingTime,
 			createdAt: new Date(),
 			owner: Meteor.userId(),
-			username: Meteor.user().username.
+			username: Meteor.user().username
 		});
 	},
 	'Pressure.remove'(pressureId){
 		Pressure.remove(taskId);
 		}
 });
+

@@ -6,11 +6,10 @@ Template.body.helpers({
   pressureCount: function () {  
   	//console.log(Tasks.find().fetch());
     return Pressure.find({}).count();
-
   },
 });
 
-//Listener for form .new-pressure
+//Listener for form .PressureInput
 Template.PressureInput.events({
   'submit .new-pressure'(event) {
     // Prevent default browser form submit
@@ -28,7 +27,9 @@ Template.PressureInput.events({
       readingTime: readingTime
     });
 
-    console.log(readingTime)
+    console.log("reading time: "+readingTime);
+    console.log("Systolic: "+systolic);
+    console.log("diastolic: "+diastolic)
     // Clear form
     //target.Systolic.value = '120';
   },
