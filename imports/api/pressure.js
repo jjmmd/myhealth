@@ -23,8 +23,14 @@ Meteor.methods({
 			username: Meteor.user().username
 		});
 	},
-	'Pressure.remove'(pressureId){
-		Pressure.remove(taskId);
-		}
+	'pressure.remove'(pressureId){
+		Pressure.remove(pressureId);
+	},
+	'pressure.count'(){
+		return Pressure.find({}).count();
+	},
+	'pressure.get'(){ // this one needs finished
+		return Pressure.findOne({});
+	}	
 });
 

@@ -3,10 +3,9 @@ import { Pressure } from '../api/pressure.js'
 import './body.html'
 
 Template.body.helpers({
-  pressureCount: function () {  
-  	//console.log(Tasks.find().fetch());
-    return Pressure.find({}).count();
-  },
+  pressureCount: function () {
+	  return Pressure.find({}).count()
+  }
 });
 
 //Listener for form .PressureInput
